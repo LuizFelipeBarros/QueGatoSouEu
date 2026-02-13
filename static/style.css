@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #D4A5A5 0%, #B89A8F 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #6B4C45;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.8s ease-out;
+    letter-spacing: 2px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    animation: slideUp 0.8s ease-out;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px 20px;
+    border: 2px solid #B89A8F;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #D4A5A5;
+    box-shadow: 0 0 15px rgba(184, 154, 143, 0.4);
+    transform: scale(1.02);
+}
+
+input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+button {
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #D4A5A5 0%, #B89A8F 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(184, 154, 143, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #B89A8F, transparent);
+    margin: 30px 0;
+}
+
+.imagem_gato {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 0.6s ease-out;
+    border: 5px solid #B89A8F;
+    transition: transform 0.3s ease;
+}
+
+.imagem_gato:hover {
+    transform: scale(1.05);
+}
+
+.nome_gato {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #6B4C45;
+    font-weight: bold;
+    animation: fadeIn 0.8s ease-out;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(212, 165, 165, 0.1), rgba(184, 154, 143, 0.1));
+    border-radius: 10px;
+    border-left: 5px solid #B89A8F;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        padding: 30px;
+        border-radius: 15px;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        min-width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .imagem_gato {
+        max-height: 300px;
+    }
+
+    .nome_gato {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .imagem_gato {
+        max-height: 250px;
+        border-width: 3px;
+    }
+
+    .nome_gato {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    input[type="text"] {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mensages Flash */
+.flashes {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.flashes li {
+    padding: 15px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    animation: slideDown 0.5s ease-out;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    border-left: 5px solid #ff3333;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

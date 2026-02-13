@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que gato sou eu?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Que gato sou eu?</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <form action="/cat" method="post">
+            <input type="text" name="nome" placeholder="Informe seu nome" required>
+            <button type="submit">Localizar o gato</button>
+        </form>
+        <hr>
+        {% if url_imagem %}
+            <img src="{{url_imagem}}" class="imagem_gato" />
+            <p class="nome_gato">{{ nome }}, esse gato é você!</p>
+        {% endif %}
+    </div>
+     {% with msg = get_flashed_messages()|first %}
+                    {% if msg %}
+                    <p class="mensagem">{{ msg }}</p>
+                    {% endif %}
+                {% endwith %}
+</body>
+</html>
